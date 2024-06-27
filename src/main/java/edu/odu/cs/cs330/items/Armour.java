@@ -46,6 +46,16 @@ public class Armour extends Item {
      */
     public Armour()
     {
+        super.name   = "empty";
+        this.material = "blank";
+        this.durability = 0;
+        this.defense = 0;
+        this.modifier = "none";
+        this.modiferLevel = 0;
+        this.element = "blank";
+        
+        super.stackable = false;
+
         // Initialize all data members (including those inherited from Item)
     }
 
@@ -57,6 +67,14 @@ public class Armour extends Item {
     public Armour(Armour src)
     {
         // Set and/or copy data members for *this* object based on *src*.
+        super.name   = src.getName();
+        this.material = src.getMaterial();
+        this.durability = src.getDurability();
+        this.defense = src.getDefense();
+        this.modifier = src.getModifier();
+        this.modiferLevel = src.getModifierLevel();
+        this.element = src.getElement();
+        super.stackable = src.isStackable();
     }
 
     /**
@@ -189,9 +207,16 @@ public class Armour extends Item {
     @Override
     public void read(Scanner snr)
     {
-        super.name   = snr.next();
-
         // Complete this method
+        super.name   = snr.next();
+        this.material = snr.next();
+        this.durability = snr.nextInt();
+        this.defense = snr.nextInt();
+        this.modifier = snr.next();
+        this.modiferLevel = snr.nextInt();
+        this.element = snr.next();
+        
+        super.stackable = false;
     }
 
     /**
@@ -201,7 +226,7 @@ public class Armour extends Item {
     public Item clone()
     {
         // Replace the next line
-        return null;
+        return new Armour(this);
     }
 
     /**
@@ -210,7 +235,19 @@ public class Armour extends Item {
     @Override
     public String toString()
     {
-        return "Implement This Function";
+        return String.format(
+            "  Nme: %s%n" + 
+            "  Dur: %d%n" +
+            "  Def: %d%n" +
+            "  Mtl: %s%n" +
+            "  Mdr: %s (Lvl %d)%n" +
+            "  Emt: %s%n",
+            this.name, 
+            this.durability, 
+            this.defense, 
+            this.material, 
+            this.modifier, this.modiferLevel, 
+            this.element);
     }
 }
 
