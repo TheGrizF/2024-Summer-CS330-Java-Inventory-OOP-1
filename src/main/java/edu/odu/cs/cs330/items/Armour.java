@@ -236,18 +236,19 @@ public class Armour extends Item {
     public String toString()
     {
         return String.format(
-            "  Nme: %s%n" + 
-            "  Dur: %d%n" +
-            "  Def: %d%n" +
-            "  Mtl: %s%n" +
-            "  Mdr: %s (Lvl %d)%n" +
-            "  Emt: %s%n",
+            "  Nme: %s\n" + 
+            "  Dur: %d\n" +
+            "  Def: %d\n" +
+            "  Mtl: %s\n" +
+            "  Mdr: %s (Lvl %d)\n" +
+            "  Emt: %s\n",
             this.name, 
             this.durability, 
             this.defense, 
             this.material, 
             this.modifier, this.modiferLevel, 
             this.element);
+            
     }
 }
 
